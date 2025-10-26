@@ -42,10 +42,13 @@ public class Main {
         // Run a simple manual loop
         while (game.getWinner() == null) {
             Player current = game.getCurrentPlayer();
+            List<Card> hand = current.getHand();
             System.out.println("\nIt's " + current.getName() + "'s turn.");
             System.out.println("Top card: " + game.getTopCard());
             System.out.println("Current color: " + game.getCurrentColor());
-            System.out.println("Your hand: " + current.getHand());
+            for (int i = 0; i < hand.size(); i++) {
+                System.out.println("[" + i + "] " + hand.get(i));
+            }
 
             System.out.println("Enter card index to play, or -1 to draw:");
             int choice = sc.nextInt();
